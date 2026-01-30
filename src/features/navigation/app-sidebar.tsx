@@ -63,7 +63,7 @@ export function AppSidebar() {
       <div className="relative flex h-full w-full flex-col overflow-hidden">
         <div
           key={depth}
-          className={`flex h-full w-full flex-col transition-all duration-300 ease-in-out ${direction === "deeper" ? "animate-in fade-in blur-in slide-in-from-right-8" : ""} ${direction === "shallower" ? "animate-in fade-in blur-in slide-in-from-left-8" : ""} `}
+          className={`flex h-full w-full flex-col transition-all duration-250 ease-out ${direction === "deeper" ? "animate-in fade-in slide-in-from-right-12" : ""} ${direction === "shallower" ? "animate-in fade-in slide-in-from-left-12" : ""}`}
         >
           {sidebarContent}
         </div>

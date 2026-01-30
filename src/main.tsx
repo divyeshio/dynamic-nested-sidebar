@@ -15,9 +15,8 @@ import { Group } from "./features/navigation/sidebar.types";
 const router = createRouter({
   routeTree,
   defaultStructuralSharing: true,
-  context: {
-    sidebar: null,
-  },
+  defaultViewTransition: true,
+  context: {},
 });
 
 // Register the router instance for type safety

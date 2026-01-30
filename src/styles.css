@@ -168,15 +168,6 @@
   --radius-4xl: calc(var(--radius) + 16px)
 }
 
-@keyframes blur-in {
-  from {
-    filter: blur(0);
-  }
-  to {
-    filter: blur(4px);
-  }
-}
-
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
