@@ -20,6 +20,7 @@ import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as LogsRouteRouteImport } from './routes/logs/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LogsIndexRouteImport } from './routes/logs/index'
+import { Route as LogsQueryRouteRouteImport } from './routes/logs/query/route'
 
 const UsageRoute = UsageRouteImport.update({
   id: '/usage',
@@ -76,6 +77,11 @@ const LogsIndexRoute = LogsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LogsRouteRoute,
 } as any)
+const LogsQueryRouteRoute = LogsQueryRouteRouteImport.update({
+  id: '/query',
+  path: '/query',
+  getParentRoute: () => LogsRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/speed-insights': typeof SpeedInsightsRoute
   '/support': typeof SupportRoute
   '/usage': typeof UsageRoute
+  '/logs/query': typeof LogsQueryRouteRoute
   '/logs/': typeof LogsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/speed-insights': typeof SpeedInsightsRoute
   '/support': typeof SupportRoute
   '/usage': typeof UsageRoute
+  '/logs/query': typeof LogsQueryRouteRoute
   '/logs': typeof LogsIndexRoute
 }
 export interface FileRoutesById {
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/speed-insights': typeof SpeedInsightsRoute
   '/support': typeof SupportRoute
   '/usage': typeof UsageRoute
+  '/logs/query': typeof LogsQueryRouteRoute
   '/logs/': typeof LogsIndexRoute
 }
 export interface FileRouteTypes {
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/speed-insights'
     | '/support'
     | '/usage'
+    | '/logs/query'
     | '/logs/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/speed-insights'
     | '/support'
     | '/usage'
+    | '/logs/query'
     | '/logs'
   id:
     | '__root__'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/speed-insights'
     | '/support'
     | '/usage'
+    | '/logs/query'
     | '/logs/'
   fileRoutesById: FileRoutesById
 }
@@ -249,14 +261,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LogsIndexRouteImport
       parentRoute: typeof LogsRouteRoute
     }
+    '/logs/query': {
+      id: '/logs/query'
+      path: '/query'
+      fullPath: '/logs/query'
+      preLoaderRoute: typeof LogsQueryRouteRouteImport
+      parentRoute: typeof LogsRouteRoute
+    }
   }
 }
 
 interface LogsRouteRouteChildren {
+  LogsQueryRouteRoute: typeof LogsQueryRouteRoute
   LogsIndexRoute: typeof LogsIndexRoute
 }
 
 const LogsRouteRouteChildren: LogsRouteRouteChildren = {
+  LogsQueryRouteRoute: LogsQueryRouteRoute,
   LogsIndexRoute: LogsIndexRoute,
 }
 

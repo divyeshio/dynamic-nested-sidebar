@@ -28,17 +28,17 @@ export const NavMain = ({ groups }: { groups: Group[] }) => {
                   >
                     <Link
                       to={menu.url}
-                      search={(prev) => prev}
                       className="text-foreground/60 hover:text-foreground"
                       activeProps={{
                         "data-active": "true",
                         className:
                           "dark:bg-primary/20 dark:text-primary dark:border-primary/50 active:hover:bg-primary hover:bg-primary/40 hover:dark:bg-primary/30",
                       }}
-                      activeOptions={{
-                        includeSearch: false,
-                        exact: true
-                      }}
+                      activeOptions={
+                        {
+                          includeSearch: false
+                        }
+                      }
                     >
                       {menu.icon && <menu.icon />}
                       {menu.title}

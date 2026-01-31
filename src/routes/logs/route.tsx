@@ -32,7 +32,7 @@ function LogsSidebar() {
       <SidebarHeader>
         <SidebarMenuButton asChild>
           <Link
-            to="/"
+            to="/deployments"
             className="flex items-center gap-2"
           >
             <ChevronLeftIcon className="size-4" />

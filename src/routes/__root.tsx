@@ -24,7 +24,7 @@ export const Route = createRootRouteWithContext()({
   head: () => ({
     meta: [
       {
-        title: "Demo",
+        title: "Nested Sidebar",
       },
     ],
     links: [
